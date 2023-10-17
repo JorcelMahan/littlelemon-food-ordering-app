@@ -1,14 +1,15 @@
 import { NavigationContainer } from "@react-navigation/native";
-
 import RootNavigator from "./navigators/RootNavigator";
-
+import { NativeBaseProvider } from "native-base";
 
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <RootNavigator />
-    </NavigationContainer>
+    <NativeBaseProvider>
+      <NavigationContainer>
+        <RootNavigator />
+      </NavigationContainer>
+    </NativeBaseProvider>
   );
 }
 

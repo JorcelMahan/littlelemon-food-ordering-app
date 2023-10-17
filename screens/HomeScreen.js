@@ -55,10 +55,8 @@ const HomeScreen = ({ navigation }) => {
     useEffect(() => {
         (async () => {
             try {
-                const x = await createTableMenuItems();
-                console.log('x', x)
+                await createTableMenuItems();
                 const items = await getMenuItems();
-                console.log('items', items)
                 if (!items.length) {
                     const items = await fetchMenu();
                     saveMenuItems(items);
@@ -78,8 +76,6 @@ const HomeScreen = ({ navigation }) => {
                 const activeCategories = filteredByCategory
                     .filter(category => category.status)
                     .map(category => category.name.toLowerCase());
-                // console.log('activeCategories', activeCategories);
-                // console.log('query', query);
                 const items = await filterByQueryAndCategories(query, activeCategories);
                 setMenuItems(items);
             } catch (error) {
